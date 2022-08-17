@@ -1,0 +1,27 @@
+# Eg. User name="admin", Password="admin" for this code sample.
+$user = "admin"
+$pass = "admin"
+
+# Build auth header
+$base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $user, $pass)))
+
+# Set proper headers
+$headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+$headers.Add('Authorization',('Basic {0}' -f $base64AuthInfo))
+$headers.Add('Accept','application/json')
+
+
+# Specify endpoint uri
+$uri = "https://tac10058.service-now.com/api/now/table/cmdb/<SYSID>?sysparm_fields=support_group%2Csys_tags%2Clocation&sysparm_input_display_value=%3CGROUP%3E%2C%3CTAG%3E%2C%3CLOCATION%3E"
+
+# Specify HTTP method
+$method = "patch"
+
+
+
+
+# Send HTTP request
+$response = Invoke-RestMethod -Headers $headers -Method $method -Uri $uri 
+
+# Print response
+$response.RawContent
