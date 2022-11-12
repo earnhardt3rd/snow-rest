@@ -7,7 +7,7 @@ url = 'https://dev77308.service-now.com/api/now/v1/account/4a32693a474b1110d24d0
 
 # Eg. User name="admin", Password="admin" for this code sample.
 user = 'admin'
-pwd = 'admin'
+pwd = 'tu!Zo1oUQ-5Q'
 
 # Set proper headers
 headers = {"Content-Type":"application/json","Accept":"application/json"}
