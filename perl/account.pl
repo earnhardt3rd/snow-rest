@@ -15,25 +15,23 @@
  
  # Set the request parameters
  my $host = 'https://dev77308.service-now.com';
- 
+ print "  HOST:$host\n";
  # Eg. User name="admin", Password="admin" for this code sample.
  my $user = 'admin';
- my $pwd = 'admin';
+ my $pwd = 'tu!Zo1oUQ-5Q';
 
  
  my $client = REST::Client->new(host => $host);
  
  my $encoded_auth = encode_base64("$user:$pwd", '');
- 
+ print "  ENC:$encoded_auth\n";
  $client->GET("/api/now/v1/account/4a32693a474b1110d24d016a436d43d7",
-                
                 {'Authorization' => "Basic $encoded_auth",
-                 
                  'Accept' => 'application/json'}); 
  
- print 'Response: ' . $client->responseContent() . "\n";
- print 'Response status: ' . $client->responseCode() . "\n";
+ print '  Response: ' . $client->responseContent() . "\n";
+ print '  Response status: ' . $client->responseCode() . "\n";
  foreach ( $client->responseHeaders() ) {
-   print 'Header: ' . $_ . '=' . $client->responseHeader($_) . "\n";
+   print '  --Header: ' . $_ . '=' . $client->responseHeader($_) . "\n";
  }
  
