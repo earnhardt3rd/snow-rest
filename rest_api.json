@@ -1,0 +1,5 @@
+{
+    "api_details" : [
+        {"api": "Table - GET", "uri" : "/api/now/table/{tableName}", "parm1" : "tableName", "default1" : "sys_dictionary"}
+    ]
+}

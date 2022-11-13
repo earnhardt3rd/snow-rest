@@ -1,15 +1,16 @@
-import getPDI
+import getPDI, getAPI
 
 import json
 
-data = getPDI.getPDI()
-print("DATA:",data)
+pdi_str = getPDI.getPDI()
+print("DATA:",pdi_str)
+print(type(pdi_str))
+pdi_json = json.loads(pdi_str)
+print(type(pdi_json))
+print(pdi_json['pdi'])
+print(pdi_json['url'])
 
-print(type(data))
-
-json_obj = json.loads(data)
-
-print(type(json_obj))
-
-print(json_obj['pdi'])
-print(json_obj['url'])
+api_str = getAPI.getAPI()
+api_json = json.loads(api_str)
+print(api_json['api'])
+print(api_json['uri'])

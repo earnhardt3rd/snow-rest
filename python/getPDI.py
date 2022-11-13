@@ -31,9 +31,15 @@ def getPDI() :
     y = y + 1
     print(str(y),"pdi:",x['pdi'].ljust(30,' '),"  --url:",x['url'])
 
-  ans = str(input("  Enter PDI number? (x~exit):"))
-  if ans.lower() ==  'x':
+  ans = str(input("  Enter PDI number? (x~exit)[1]:"))
+  if ans == '':
+    ans = 1
+
+  if str(ans).isalpha():
     print("Good-bye")
   else:
     # print(data['pdi_details'][ans-1])
     return json.dumps(data['pdi_details'][int(ans) - 1])
+if __name__ == "__main__":
+  rtn_str = getPDI()
+  print('  RTN_STR:',rtn_str)
